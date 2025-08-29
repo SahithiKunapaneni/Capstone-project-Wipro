@@ -1,0 +1,47 @@
+<div *ngIf="userRole === 'admin'; else notAdmin">
+  <app-admin-layout></app-admin-layout>
+</div>
+
+<ng-template #notAdmin>
+  <app-cashier-layout></app-cashier-layout>
+</ng-template>
+<!-- <app-admin-layout></app-admin-layout> -->
+<div class="sales-history-container">
+  <h2 class="title">📊 Sales History</h2>
+
+  <div class="table-wrapper">
+    <table class="sales-history-table">
+      <thead>
+        <tr>
+          <th>Sale ID</th>
+          <th>Date</th>
+          <th>Customer</th>
+          <th>Items</th>
+          <th>Total</th>
+          <th>Payment</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sale of sales">
+          <td>#{{ sale.id }}</td>
+          <td>{{ sale.sale_date | date: 'dd/MM/yyyy HH:mm' }}</td>
+          <td>{{ sale.customer_info }}</td>
+          <td>{{ sale.items.length }} items</td>
+          <td class="total-price">₹{{ sale.total_price.toFixed(2) }}</td>
+          <td>
+            <span class="payment-chip" [ngClass]="sale.payment_method.toLowerCase()">
+              {{ sale.payment_method }}
+            </span>
+          </td>
+          <td>
+            <button (click)="viewBill(sale.id)" class="view-btn">
+  <i class="fa fa-eye"></i> View
+</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

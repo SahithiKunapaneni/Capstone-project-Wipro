@@ -1,0 +1,58 @@
+<div class="login-page d-flex min-vh-100">
+  <!-- LEFT SIDE: IMAGE -->
+  <div class="left-side d-none d-md-flex align-items-center justify-content-center">
+    <!-- You could optionally add some text/logo overlay here -->
+  </div>
+
+  <!-- RIGHT SIDE: LOGIN -->
+  <div class="right-side d-flex justify-content-center align-items-center">
+    <div class="login-card p-5 shadow-lg bg-white rounded text-center">
+      <div *ngIf="showMessage" class="alert alert-danger py-2">
+        {{ showMessage }}
+      </div>
+      <!-- Shopping Logo/Icon -->
+      <div class="mb-4">
+        <img src="https://cdn-icons-png.flaticon.com/512/34/34627.png" 
+             alt="Supermarket Logo" width="60" height="60">
+        <h5 class="mt-2 fw-bold text-success">SuperMarket System</h5>
+        <p class="text-muted small">Inventory Management Portal</p>
+      </div>
+       
+      <!-- ✅ Angular Form -->
+      <h4 class="mb-4 text-success fw-bold">Login to Your Account</h4>
+      <form (ngSubmit)="login()" #loginForm="ngForm">
+        
+        <div class="mb-3 text-start">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" 
+                 id="username" 
+                 class="form-control" 
+                 placeholder="Enter your username"
+                 [(ngModel)]="username" 
+                 name="username" 
+                 required>
+        </div>
+
+        <div class="mb-3 text-start">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" 
+                 id="password" 
+                 class="form-control" 
+                 placeholder="Enter your password"
+                 [(ngModel)]="password" 
+                 name="password" 
+                 required>
+        </div>
+
+        <button type="submit" 
+                class="btn btn-success w-100" 
+                [disabled]="!loginForm.valid">
+          Sign In
+        </button>
+      </form>
+
+     
+    </div>
+  </div>
+</div>
+

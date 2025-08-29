@@ -1,0 +1,132 @@
+.sales-history-container {
+  padding: 20px;
+}
+
+.sales-history-container h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #1a202c; /* dark gray */
+  font-weight: 600;
+}
+
+.sales-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Table header */
+.sales-history-table th {
+  background-color: #f9fafb;
+  text-align: left;
+  padding: 14px 16px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #4a5568;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Table body cells */
+.sales-history-table td {
+  padding: 14px 16px;
+  font-size: 14px;
+  color: #2d3748;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+/* Last row: no border */
+.sales-history-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Hover row effect */
+.sales-history-table tbody tr:hover {
+  background-color: #f7fafc;
+  transition: background 0.2s ease;
+}
+
+/* Payment method chips */
+.payment-chip {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.payment-chip.cash {
+  background-color: #38a169; /* green */
+}
+
+.payment-chip.card {
+  background-color: #3182ce; /* blue */
+}
+
+/* Default look: like a text link */
+.view-btn {
+  background: none;
+  border: none;
+  color: #007bff;   /* Bootstrap blue */
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: all 0.2s ease-in-out;
+}
+
+.view-btn i {
+  margin-right: 4px;
+}
+
+/* On hover or focus → light blue background + white text */
+.view-btn:hover,
+.view-btn:focus {
+  background-color: #007bff;
+  color: white;
+}
+
+/* On active (when you press) → a slightly darker blue */
+.view-btn:active {
+  background-color: #0056b3;
+  color: white;
+}
+/* Summary Card */
+.summary-card {
+  background: #fff;
+  padding: 18px 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.summary-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #1f2937; /* dark text */
+}
+
+.summary-stats {
+  display: flex;
+  gap: 40px;
+  font-size: 15px;
+  color: #374151;
+}
+
+.summary-stats strong {
+  font-weight: 700;
+  color: #111827;
+}
+.footer {
+  background: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}

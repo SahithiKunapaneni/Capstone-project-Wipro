@@ -1,0 +1,118 @@
+.bill-page {
+  display: flex;
+  height: calc(100vh - 100px); /* full height between navbar & footer */
+  padding: 20px 40px;
+  gap: 40px;
+}
+
+/* Left Side - Full Height Illustration */
+.bill-illustration {
+  flex: 1.5; /* take more width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bill-illustration img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Right Side - Larger Receipt Card */
+.bill-receipt {
+  flex: 1; /* balance with image */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bill-container {
+  width: 100%;
+  max-width: 520px;   /* ✅ bigger width */
+  min-height: 500px; /* ✅ ensure height is larger like before */
+  background-color: #fff;
+  padding: 24px;     /* ✅ more padding for breathing */
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Dashed tear separators */
+.tear-line {
+  border-top: 2px dashed #ccc;
+  margin: 15px -20px;
+}
+
+/* Header */
+.bill-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+/* Items */
+.bill-items {
+  margin-top: 10px;
+}
+.bill-items .item {
+  border-bottom: 1px dashed #ddd;
+  padding: 8px 0;
+  font-size: 15px;
+}
+
+/* Highlight Total */
+.bill-total {
+  background-color: #177b8a;
+  color: #fff;
+  text-align: center;
+  padding: 14px;
+  border-radius: 6px;
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Thank You */
+.bill-thankyou {
+  margin-top: 20px;
+  text-align: center;
+  font-style: italic;
+  font-size: 15px;
+  color: #444;
+}
+
+/* Print Button */
+.print-btn-container {
+  margin-top: 20px;
+  text-align: center;
+}
+.print-btn {
+  background: #2f8f9d;
+  color: white;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.print-btn:hover {
+  background: #22707d;
+  transform: translateY(-2px);
+}
+.bill-title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: #2f8f9d; /* teal theme */
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}

@@ -1,0 +1,152 @@
+<app-admin-layout></app-admin-layout>
+<div class="container">
+  <h1 class="page-title">Product Management</h1>
+   <div *ngIf="successMessage" class="alert">
+  {{ successMessage }}
+</div>
+  <!-- Stock Overview -->
+<div class="stock-overview card p-3">
+  <div class="d-flex justify-content-between align-items-center flex-wrap">
+    
+    <div class="d-flex gap-4">
+      <div>
+        <span>Total Products: </span>
+        <strong>{{ products.length }}</strong>
+      </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+      <div>
+        <span>Low Stock Items: </span>
+        <strong>{{ calculateLowStock() }}</strong>
+      </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+      <div>
+        <span>Total Value: </span>
+        <strong>₹{{ calculateTotalValue() | number: '1.2-2' }}</strong>
+      </div>
+    </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button class="btn btn-primary add-btn" (click)="toggleAddProduct()">Add New Product</button>
+    </div>
+  </div>
+
+    
+  </div>
+ 
+<!-- Filter Section -->
+<div class="filters d-flex gap-3 mb-3">
+  <input type="text" [(ngModel)]="filters.name" placeholder="Search by Name" class="form-control" />
+  <select [(ngModel)]="filters.category" class="form-control">
+    <option value="">All Categories</option>
+    <option>Fruits</option>
+    <option>Bakery</option>
+    <option>Dairy</option>
+    <option>Meat</option>
+    <option>Pantry</option>
+    <option>Beverages</option>
+  </select>
+  <input type="number" [(ngModel)]="filters.stock" placeholder="Min Stock" class="form-control" min="0" />
+  <select [(ngModel)]="filters.status" class="form-control">
+    <option value="">All Status</option>
+    <option value="in-stock">In Stock</option>
+    <option value="low-stock">Low Stock</option>
+    <option value="out-of-stock">Out of Stock</option>
+  </select>
+</div>
+
+  <!-- Product Form Modal -->
+  <!-- Product Form Modal -->
+<div class="custom-modal-backdrop" *ngIf="showProductForm">
+  <div class="custom-modal">
+    <form (ngSubmit)="saveProduct()">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ product.id ? 'Edit Product' : 'Add New Product' }}</h5>
+        <button class="btn btn-primary add-btn" (click)="toggleAddProduct(true)">Add New Product</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Product Name</label>
+          <input type="text" [(ngModel)]="product.name" name="name" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <label>Description</label>
+          <textarea [(ngModel)]="product.description" name="description" class="form-control" rows="2"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Category</label>
+          <select [(ngModel)]="product.category" name="category" class="form-control" required>
+            <option value="" disabled>Select Category</option>
+            <option>Fruits</option>
+            <option>Bakery</option>
+            <option>Dairy</option>
+            <option>Meat</option>
+            <option>Pantry</option>
+            <option>Beverages</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group half">
+            <label>Price ($)</label>
+            <input type="number" [(ngModel)]="product.price" name="price" class="form-control" required>
+          </div>
+          <div class="form-group half">
+            <label>Stock Quantity</label>
+            <input type="number" [(ngModel)]="product.stock" name="stock" class="form-control" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Minimum Stock Level</label>
+          <input type="number" [(ngModel)]="product.minimum_stock" name="minimum_stock" class="form-control" required>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="toggleAddProduct()">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Product</button>
+      </div>
+    </form>
+  </div>
+</div>
+  <!-- Product List -->
+  <table class="product-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of filteredProducts; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>
+          <div class="product-name">{{ p.name }}</div>
+          <div class="product-desc">{{ p.description }}</div>
+        </td>
+        <td><span class="badge">{{ p.category }}</span></td>
+        <td class="price">₹{{ p.price | number:'1.2-2' }}</td>
+        <td class="stock">{{ p.stock }}</td>
+        <td><span [ngClass]="getStatusClass(p)">{{ getStatusText(p) }}</span></td>
+        
+        <td>
+             <button class="btn-action edit-btn" (click)="editProduct(p.id, p)">
+              ✏️ Edit
+            </button>
+             <button class="btn-action delete-btn" (click)="deleteProduct(p.id)">
+              🗑️ Delete
+             </button>
+            </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

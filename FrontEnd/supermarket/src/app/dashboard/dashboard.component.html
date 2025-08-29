@@ -1,0 +1,61 @@
+<app-admin-layout></app-admin-layout>
+<!-- Dashboard Content -->
+<div class="dashboard-container">
+  <h2>Admin Dashboard</h2>
+  <div class="stats-row">
+    <div class="stat-card users">
+      <span class="stat-count">{{ users.length }}</span>
+    
+      <span class="stat-label">Total Users</span>
+      <i class="fas fa-users stat-icon"></i>
+    </div>
+    <div class="stat-card products">
+      <span class="stat-count">{{ products.length }} </span>
+      <span class="stat-label">Total Products</span>
+      <i class="fas fa-cubes stat-icon"></i>
+    </div>
+    <div class="stat-card sales">
+      <span class="stat-count"><strong>{{ calculateTotalSales() }}</strong></span>
+      <span class="stat-label">Total Sales</span>
+      <i class="fas fa-chart-line stat-icon"></i>
+    </div>
+    <div class="stat-card low-stock">
+      
+      <span class="stat-count"><strong>{{ calculateLowStock() }}</strong></span>
+      <!-- {{ calculateLowStock() }} -->
+      <span class="stat-label">Low Stock Items</span>
+      <i class="fas fa-exclamation-triangle stat-icon"></i>
+    </div>
+  </div>
+  <div class="content-row">
+    <div class="recent-sales">
+      <h4>Recent Sales</h4>
+      <div class="recent-sales">
+  <h4>Recent Sales</h4>
+  <div class="sales-list">
+    <div class="sale-row" *ngFor="let sale of sales  | slice:0:5">
+      <div>
+        <strong>Sale #{{ sale.id }}</strong>
+        
+      </div>
+      <span class="sale-amount">₹{{ sale.total_price.toFixed(2) }}</span>
+   
+    </div>
+  </div>
+</div>
+    </div> 
+    <div class="low-stock-alert">
+  <h4>Low Stock Alerts</h4>
+
+  <!-- show "No low stock alerts" if empty -->
+  <div *ngIf="lowStock.length === 0">
+    ✅ No low stock alerts
+  </div>
+
+  <!-- list all low stock items -->
+  <div class="alert-content" *ngFor="let item of lowStock">
+    ⚠️ {{ item.name }} - Only {{ item.qty }} left
+  </div>
+</div>
+  </div>
+</div>

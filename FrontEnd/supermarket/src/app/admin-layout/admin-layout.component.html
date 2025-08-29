@@ -1,0 +1,31 @@
+<!-- Top Navigation Bar -->
+<nav class="navbar">
+  <div class="navbar-left">
+    <span class="brand">
+      <span class="brand-icon material-icons">shopping_bag</span>
+      &nbsp;SuperMarket
+    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a routerLink="/dashboard" class="nav-link">
+      <i class="fas fa-tachometer-alt"></i> <span class="material-icons">dashboard</span> Dashboard
+    </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a routerLink="/add-product" class="nav-link">
+      <i class="fas fa-cubes"></i> <span class="material-icons">inventory_2</span>Products
+    </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a routerLink="/users" class="nav-link">
+      <i class="fas fa-users"></i> <span class="material-icons">account_circle</span>Users
+    </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <!-- <a routerLink="/checkout" class="nav-link">
+      <i class="fas fa-shopping-cart"></i> Sales
+    </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+    <a routerLink="/sales-history" class="nav-link">
+      <i class="fas fa-history"></i> <span class="material-icons">history</span> History
+    </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </div>
+  <div class="navbar-right">
+    <span class="admin-icon">
+      <i class="fas fa-user-circle"></i>  <span class="material-icons">account_circle</span> Welcome {{ username }} ❤️
+      <i class="fas fa-chevron-down"></i>
+    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="logout-btn" (click)="logout()"><span class="material-icons">logout</span>Logout</button>
+  </div>
+</nav>

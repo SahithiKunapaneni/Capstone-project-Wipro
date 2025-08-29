@@ -1,0 +1,38 @@
+<h2>Product List</h2>
+<div>
+  <input type="text" placeholder="Search by name" [(ngModel)]="searchText" />
+  <button (click)="filterProducts()">Search</button>
+</div>
+
+<table *ngIf="filteredProducts.length > 0">
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Stock</th>
+    <th>SKU</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let product of filteredProducts; let i = index">
+    <td>
+      <input [(ngModel)]="product.name" [readonly]="editIndex !== i">
+    </td>
+    <td>
+      <input type="number" [(ngModel)]="product.price" [readonly]="editIndex !== i">
+    </td>
+    <td>
+      <input type="number" [(ngModel)]="product.stock" [readonly]="editIndex !== i">
+    </td>
+    <td>
+      <input [(ngModel)]="product.sku" [readonly]="editIndex !== i">
+    </td>
+    <td>
+      <button *ngIf="editIndex !== i" (click)="editProduct(i)">Edit</button>
+      <button *ngIf="editIndex === i" (click)="updateProduct(product)">Save</button>
+      <button (click)="deleteProduct(product.id)">Delete</button>
+    </td>
+  </tr>
+</table>
+
+<div *ngIf="filteredProducts.length === 0">
+  <p>No items found with the name "{{ searchText }}"</p>
+</div>

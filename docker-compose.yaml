@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  user-service:
+    build: ./user-service
+    image: user-service:v2
+    ports:
+      - "5051:5051"
+
+  inventory-service:
+    build: ./Inventory-service
+    image: inventory-service:v2
+    ports:
+      - "5050:5050"
+
+  sales-service:
+    build: ./sales
+    image: sales-service:v2
+    ports:
+      - "5052:5052"
+    depends_on:
+      - inventory-service
+    environment:
+      - INVENTORY_SERVICE_URL=http://inventory-service:5050/api/products
+
+  gateway:
+    build: ./Gateway
+    image: api-gateway:v2
+    ports:
+      - "5054:5054"
+    depends_on:
+      - user-service
+      - sales-service
+      - inventory-service
+
+  frontend:
+    build: ./supermarket
+    image: frontend:v2
+    ports:
+      - "4200:80"
+    depends_on:
+      - gateway

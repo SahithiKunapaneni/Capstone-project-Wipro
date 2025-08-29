@@ -1,0 +1,13 @@
+.welcome-banner {
+  /* ✅ teal background */
+  color: rgb(27, 24, 24);               /* text color white for contrast */
+  text-align: center;
+  padding: 20px 0;            /* spacing above and below */
+}
+
+.welcome-banner h1 {
+  font-size: 2.5rem; /* responsive size */
+  margin: 0;
+  font-style: italic;
+  font-weight: bold;
+}

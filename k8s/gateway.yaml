@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gateway-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gateway
+  template:
+    metadata:
+      labels:
+        app: gateway
+    spec:
+      containers:
+      - name: gateway
+        image: supermarket-project-gateway-service:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5054
+        env:
+        - name: USERS_SERVICE_URL
+          value: "http://user-service:5051/api"
+        - name: PRODUCTS_SERVICE_URL
+          value: "http://inventory-service:5050/api/products"
+        - name: SALES_SERVICE_URL
+          value: "http://sales-service:5052/api/sales"

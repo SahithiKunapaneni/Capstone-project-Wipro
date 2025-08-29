@@ -1,0 +1,193 @@
+/* Global app background and typography */
+html, body {
+  background: #f5f7fb;            /* soft app background */
+  color: #1f2d3d;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  height: 100%;
+}
+
+.container.sales-checkout {
+  max-width: 1200px;
+}
+
+/* Top title */
+.sales-checkout h1 {
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 24px;
+}
+
+/* Section headers (Products / Shopping Cart) */
+.section-header {
+  background: #e9f0fb;            /* light bluish header bar from screenshot */
+  border: 1px solid #e6eaf2;
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+}
+.section-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* Search input look */
+.sales-checkout .form-control {
+  height: 44px;
+  border: 1px solid #d9dee7;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 1px 0 rgba(16, 24, 40, 0.02) inset;
+}
+.sales-checkout .form-control::placeholder {
+  color: #8a94a6;
+}
+
+/* PRODUCTS GRID
+   Use CSS Grid to force a clean 2-column layout on desktop and stack on mobile */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns like the screenshot */
+  gap: 16px;
+}
+@media (max-width: 991.98px) {
+  .products-grid { grid-template-columns: 1fr; }
+}
+
+/* Product card styling */
+.product-card {
+  border: 1px solid #e6eaf2;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(16, 24, 40, 0.06);
+  transition: box-shadow .2s ease, transform .05s ease;
+}
+.product-card:hover {
+  box-shadow: 0 6px 16px rgba(16, 24, 40, 0.12);
+}
+.product-card .card-body {
+  padding: 16px 18px;
+}
+.product-card .card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #102a43;
+  margin-bottom: 6px;
+}
+.product-card .card-text {
+  font-size: 14px;
+  margin: 4px 0;
+}
+.product-card .card-text.price {
+  font-weight: 700;
+  color: #0c6d62;                 /* teal price accent */
+}
+.product-card .card-text.stock {
+  color: #5b6b81;
+}
+.qty-input {
+  height: 40px !important;
+  border-radius: 8px !important;
+  max-width: 120px;
+  margin-top: 8px;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 10px;
+  font-weight: 600;
+  border: none;
+}
+.btn-primary {
+  background-color: #0f8b85;      /* teal primary (matches screenshot footer) */
+}
+.btn-primary:hover { background-color: #0d7b76; }
+.btn-warning {
+  background: #ffd66b;
+  color: #5a3e00;
+}
+.btn-warning:hover { background: #ffc94a; color: #5a3e00; }
+.btn-success {
+  background: #0f8b85;            /* same teal for consistency */
+  color: #fff;
+}
+.btn-success:hover { background: #0d7b76; }
+
+/* SHOPPING CART PANEL */
+.cart-panel {
+  border: 1px solid #e6eaf2;
+  border-radius: 12px;
+  background: #f7f9fd;            /* soft panel fill */
+}
+.cart-panel .card-body { padding: 18px; }
+
+/* Cart list items — soft blue blocks */
+.cart-list { margin-bottom: 6px; }
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  background: #eaf1ff;            /* light blue item background */
+  color: #243b53;
+  padding: 16px;
+  box-shadow: inset 0 0 0 1px #dae6ff;
+}
+.item-price {
+  font-weight: 700;
+  color: #1f2d3d;
+}
+
+/* Totals + actions */
+.totals strong {
+  display: block;
+  padding-top: 8px;
+  border-top: 1px solid #e5eaf5;
+  margin-top: 12px;
+  font-size: 18px;
+  color: #1f2d3d;
+}
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+.action-buttons .btn {
+  flex: 1 1 auto;
+  height: 44px;
+}
+
+/* Empty cart message */
+.empty-msg { color: #5b6b81; }
+
+/* Spacing tweaks to mimic screenshot */
+.mt-5 { margin-top: 32px !important; }
+.mb-3 { margin-bottom: 16px !important; }
+
+/* Make page take full height */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Container should grow and push footer down */
+.container {
+  flex: 1; /* take remaining space */
+}
+
+/* Footer sticks to bottom */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}

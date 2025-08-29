@@ -1,0 +1,59 @@
+<div *ngIf="userRole === 'admin'; else notAdmin">
+  <app-admin-layout></app-admin-layout>
+</div>
+
+<ng-template #notAdmin>
+  <app-cashier-layout></app-cashier-layout>
+</ng-template>
+
+<div class="bill-page">
+  
+  <!-- Left Side: Illustration -->
+  <div class="bill-illustration">
+    <img src="https://www.shutterstock.com/image-vector/checkout-counter-grocery-supermarket-customers-260nw-1868282506.jpg" alt="Billing Cartoon" />
+    
+  </div>
+<div class="bill-page">
+  
+  
+
+  <!-- Right Side: Bill Details -->
+  <div class="bill-receipt">
+    <div class="bill-container">
+       <h2 class="bill-title">🧾 Bill Receipt</h2>
+      <div class="tear-line"></div>
+      
+      <div class="bill-header">
+        <div>
+          <div>Sale ID: <strong>#{{ saleId }}</strong></div>
+          <div>Customer: <strong>{{ customerInfo }}</strong></div>
+        </div>
+        <div>
+          <div>Date: {{ date }}</div>
+          <div>Payment: <strong>{{ paymentMethod }}</strong></div>
+        </div>
+      </div>
+
+      <div class="bill-items">
+        <div><strong>Items:</strong></div>
+        <div *ngFor="let item of items" class="item">
+          {{ item.product_name || item.name }} x {{ item.quantity }} = {{ item.price * item.quantity | currency }}
+        </div>
+      </div>
+
+      <div class="bill-total">
+        <strong>Total: {{ totalAmount | currency }}</strong>
+      </div>
+
+      <div class="bill-thankyou">
+        🙏 Thank you for visiting! Please visit again.
+      </div>
+
+      <div class="print-btn-container">
+        <button class="print-btn" (click)="goToHistory()">🖨 Print Bill</button>
+      </div>
+
+      <div class="tear-line"></div>
+    </div>
+  </div>
+</div>

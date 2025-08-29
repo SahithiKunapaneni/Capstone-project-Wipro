@@ -1,0 +1,33 @@
+/* Left Side with Background Image */
+.left-side {
+  flex: 2;  /* Half screen */
+  background: url("https://cdn.prod.website-files.com/622faf89982b1a82750a4f2b/62ce9040f6e3931b4589c94a_Supermarket%20Management%20Systems%20-%20Header.png")  center / cover no-repeat; 
+
+  filter: brightness(100%);   /* Slight dim for overlay text to pop */
+  
+  position: relative;
+}
+/* Page Wrapper */
+.login-page {
+  display: flex;
+  height: 100vh;
+}
+
+
+/* RIGHT SIDE: LOGIN */
+.right-side {
+  flex: 0.8;   /* ✅ shrink right side so login moves closer */
+  background: linear-gradient(135deg, #f5f5f5, #eaf7ea);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 5%;  /* ✅ small shift to touch closer with image */
+}
+
+/* LOGIN CARD */
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  text-align: center;
+}

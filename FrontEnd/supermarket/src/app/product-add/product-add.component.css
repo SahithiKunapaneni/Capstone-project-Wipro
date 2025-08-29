@@ -1,0 +1,378 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;  /* Full viewport height */
+  padding-bottom: 80px; /* Reserve space for footer height */
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Stock Overview card */
+.stock-overview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.stock-item {
+  font-size: 14px;
+  margin-right: 20px;
+}
+
+.stock-item strong {
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+.add-btn {
+  background: #2f8f9d;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background: #22707d;
+}
+
+/* Table styling */
+.product-table {
+  max-height: calc(100vh - 300px);
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+  padding-bottom: 200px;
+}
+
+.product-table thead {
+  background: #f6fafd;
+  text-align: left;
+}
+
+.product-table th {
+  padding: 12px 15px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.product-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+.product-name {
+  font-weight: bold;
+  color: #333;
+}
+
+.product-desc {
+  font-size: 12px;
+  color: #777;
+}
+
+.price, .stock {
+  font-weight: bold;
+  color: #2f8f9d;
+}
+
+.badge {
+  background: #eee;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  color: #333;
+}
+
+/* Status */
+.status {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  background: #e0f3f4;
+  color: #2f8f9d;
+}
+
+/* Buttons */
+.btn {
+  padding: 5px 12px;
+  border-radius: 6px;
+  background: white;
+  font-size: 12px;
+  cursor: pointer;
+  margin-right: 5px;
+  border: 1px solid #ccc;
+}
+
+.btn-outline {
+  background: white;
+  border: 1px solid #ccc;
+}
+
+.btn-outline:hover {
+  background: #f6f6f6;
+}
+
+.btn-outline.danger {
+  color: red;
+  border: 1px solid red;
+}
+/* Modal Backdrop */
+.custom-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Modal Box */
+.custom-modal {
+  background: #fff;
+  width: 500px;
+  border-radius: 10px;
+  box-shadow: 0px 6px 20px rgba(0,0,0,0.2);
+  overflow: hidden;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0px); }
+}
+
+/* Modal Header */
+.custom-modal .modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.custom-modal .modal-header h5 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Modal Body */
+.custom-modal .modal-body {
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Half-width inputs */
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+.form-row .half {
+  flex: 1;
+}
+
+/* Modal Footer */
+.custom-modal .modal-footer {
+  padding: 15px 20px;
+  border-top: 1px solid #eee;
+  text-align: right;
+}
+
+.btn {
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #2f8f9d;
+  color: white;
+  border: none;
+}
+.btn-primary:hover {
+  background: #24727f;
+}
+
+.btn-secondary {
+  background: #eee;
+  border: none;
+}
+.btn-secondary:hover {
+  background: #ddd;
+}
+
+/* ------------ Stylish Status Badges ------------ */
+.in-stock {
+  background: #e6f9f1;
+  color: #168f52;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.low-stock {
+  background: #fff3cd;
+  color: #856404;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.out-of-stock {
+  background: #f8d7da;
+  color: #a94442;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+/* Common Action Button Styling */
+.btn-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px; /* space between icon and text */
+  font-size: 13px;
+  font-weight: 500;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 20px; /* pill shape */
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-right: 6px;
+}
+
+/* Edit button style */
+.edit-btn {
+  background: #e6f2ff;
+  color: #2f6fde;
+}
+.edit-btn:hover {
+  background: #2f6fde;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0px 3px 6px rgba(47,111,222,0.3);
+}
+
+/* Delete button style */
+.delete-btn {
+  background: #fdecea;
+  color: #d93025;
+}
+.delete-btn:hover {
+  background: #d93025;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0px 3px 6px rgba(217,48,37,0.3);
+}
+.alert {
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 14px;
+  animation: fadeIn 0.3s ease-in-out;
+  text-align: center;
+}
+
+.alert:has(✅),
+.alert:has(🗑️) {
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+}
+
+.alert:has(❌) {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.stock-overview {
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background: #fff;
+}
+
+.stock-overview div span {
+  color: #6c757d; /* muted text */
+  margin-right: 4px;
+}
+
+.add-btn {
+  padding: 8px 18px;
+  font-weight: 600;
+  border-radius: 6px;
+  background-color: #176d73;
+  border-color: #176d73;
+}
+.add-btn:hover {
+  background-color: #14585c;
+  border-color: #14585c;
+}
+.footer {
+  /* background: #333;
+  color: white;
+  padding: 20px;
+  text-align: center; */position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  z-index: 100;
+}
